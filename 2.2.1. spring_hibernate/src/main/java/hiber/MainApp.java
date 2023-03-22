@@ -31,11 +31,11 @@ public class MainApp {
 
         System.out.println(userService.getUserByCarNumberAndSeries("Renault Duster", 333));
 
-        System.out.println(userService.listUsers());
+        System.out.println(userService.showListUsers());
 
-        userService.listUsers();
+        userService.showListUsers();
 
-        List<User> users = userService.listUsers();
+        List<User> users = userService.showListUsers();
         for (User user : users) {
             System.out.println("Id = " + user.getId());
             System.out.println("First Name = " + user.getFirstName());

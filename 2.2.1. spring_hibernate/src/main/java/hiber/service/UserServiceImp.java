@@ -22,7 +22,7 @@ public class UserServiceImp implements UserService {
 
     @Transactional(readOnly = true)
     @Override
-    public List<User> listUsers() {
+    public List<User> showListUsers() {
         return userDao.showListUsers();
     }
 
