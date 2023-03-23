@@ -17,7 +17,7 @@ public class UserDaoImp implements UserDao {
     private SessionFactory sessionFactory;
 
     @Override
-    public void add(User user) {
+    public void addUser(User user) {
         sessionFactory.getCurrentSession().save(user);
     }
 
@@ -35,17 +35,17 @@ public class UserDaoImp implements UserDao {
                 .setParameter("car_model", carModel)
                 .setParameter("car_series", carSeries);
 
-        List<Car> findCarList = query.getResultList();
+        List<Car> carList = query.getResultList();
         List<User> userList = showListUsers();
 
 
         for (User user : userList)
-            for (Car car : findCarList) {
+            for (Car car : carList) {
                 if (user.getCar().getSeries() == car.getSeries() && Objects.equals(user.getCar().getModel(), car.getModel())) {
                     return user;
                 }
             }
-        System.out.println("Юзверя с таким автомобилем пока не существует!!!!");
+        System.out.println("Пользовтеля с таким автомобилем пока не существует!!!!");
         return null;
     }
 }
